@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import ButtonFunctionality from './buttons/buttonFunctionality';
+import PrimaryButton from './buttons/primaryButton';
+import SecondaryButton from './buttons/secondayButton';
 
 function App() {
+  
+  const clickHandler = (message) => {
+    alert(message);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PrimaryButton cta="Primary Button" onClick={() => { clickHandler('Primary button') }}/>
+      <SecondaryButton cta="Secondary Button" onClick={() => { clickHandler('Secondary button') }}/>
+      <ButtonFunctionality onClick={() => { clickHandler('Custom button') }}>
+        <div className="button custom-button">Custom button</div>
+      </ButtonFunctionality>
+
+      <div className="sub-page">
+        <PrimaryButton cta="Primary Button Override" onClick={() => { clickHandler('Primary button override') }}/>
+      </div>
     </div>
   );
 }
